@@ -63,3 +63,4 @@ typings/
 # Parcel cache
 */.cache/
 */dist/
+.vscode/
