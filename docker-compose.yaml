@@ -21,11 +21,14 @@ services:
       ## uncomment next line to set an admin secret
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
   node:
-    image: node:10-alpine
-    depends_on: 
-    -  postgres
+    build:
+      context: ./nodeServer
+      dockerfile: Dockerfile
+    links: 
+    - postgres
     restart: always
     environment:
+      PGHOST: postgres
       PGUSER: postgres
       PGDATABASE: postgres
 volumes:
